@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -17,13 +16,12 @@ public class BasicAuthenticationExample {
             // Set the request method to GET
             connection.setRequestMethod("GET");
 
-            // Set up Basic Authentication
-            String username = "admin";
-            String password = "tiara token";
+            // Set up Basic Authentication using hardcoded username and password
+            String username = "Johny";
+            String password = "papa";
+
             String authString = username + ":" + password;
-            // Encode the authentication string
             String encodedAuthString = Base64.getEncoder().encodeToString(authString.getBytes());
-            // Set the Authorization header
             connection.setRequestProperty("Authorization", "Basic " + encodedAuthString);
 
             // Get the response code
@@ -44,8 +42,9 @@ public class BasicAuthenticationExample {
 
             // Close the connection
             connection.disconnect();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
+
